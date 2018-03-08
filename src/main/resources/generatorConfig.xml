@@ -81,7 +81,7 @@
             &lt;!&ndash; <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> &ndash;&gt;
         </table>-->
 
-        <table schema="" tableName="sys_user" domainObjectName="UserXm"
+        <table schema="" tableName="dict_is_editable" domainObjectName="DictXm"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
         </table>

@@ -12,8 +12,9 @@ public class HolleController {
         return "aa";
     }
 
-    @RequestMapping("tox")
+    @RequestMapping("/tox")
     public String toX(){
         return "basd/dict_add";
     }
+
 }

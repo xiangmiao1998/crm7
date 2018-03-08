@@ -9,7 +9,7 @@
 <head>
     <base href="<%=basePath%>">
     <meta name="copyright" content="All Rights Reserved, Copyright (C) 2013, Wuyeguo, Ltd." />
-    <title>EasyUI Web Admin Power by Wuyeguo</title>
+    <title>客户关系管理系统</title>
     <link rel="stylesheet" type="text/css" href="easyui/1.3.4/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="css/wu.css" />
     <link rel="stylesheet" type="text/css" href="css/icon.css" />
@@ -23,7 +23,7 @@
 <!-- begin of header -->
 <div class="wu-header" data-options="region:'north',border:false,split:true">
     <div class="wu-header-left">
-        <h1>EasyUI Web Admin</h1>
+        <h1>客户关系管理系统</h1>
     </div>
     <div class="wu-header-right">
         <p><strong class="easyui-tooltip" title="2条未读消息">admin</strong>，欢迎您！</p>
@@ -32,76 +32,42 @@
 </div>
 <!-- end of header -->
 <!-- begin of sidebar -->
-<div class="wu-sidebar" data-options="region:'west',split:true,border:true,title:'导航菜单'">
+<div class="wu-sidebar" data-options="region:'west',split:true,border:true,title:'客户关系管理系统'">
     <div class="easyui-accordion" data-options="border:false,fit:true">
-        <div title="快捷菜单" data-options="iconCls:'icon-application-cascade'" style="padding:5px;">
+        <div title="营销管理" data-options="iconCls:'icon-application-cascade'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="temp/layout-2.html" iframe="0">菜单导航</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="cust/cust/activities.jsp" iframe="0">用户管理</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">角色管理</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">数据字典</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="holle/tox" iframe="0">系统参数</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">操作日志</a></li>
+                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="sale/tolist" iframe="0">销售机会管理</a></li>
+                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="sale/devlist" iframe="0">客户开发计划</a></li>
             </ul>
         </div>
-        <div title="内容管理" data-options="iconCls:'icon-application-form-edit'" style="padding:5px;">
+        <div title="客户管理" data-options="iconCls:'icon-application-form-edit'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">客户信息管理</a></li>
+                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">客户流失管理</a></li>
             </ul>
         </div>
-        <div title="商品管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">
+        <div title="服务管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">服务创建</a></li>
+                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">服务分配</a></li>
+                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">服务处理</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">服务反馈</a></li>
+                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">服务归档</a></li>
             </ul>
         </div>
-        <div title="订单管理" data-options="iconCls:'icon-cart'" style="padding:5px;">
+        <div title="统计报表" data-options="iconCls:'icon-cart'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">客户贡献分析</a></li>
+                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">客户贡献分析</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">客户服务分析</a></li>
+                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">客户流失分析</a></li>
             </ul>
         </div>
-        <div title="广告管理" data-options="iconCls:'icon-bricks'" style="padding:5px;">
+        <div title="基础数据" data-options="iconCls:'icon-bricks'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-            </ul>
-        </div>
-        <div title="报表中心" data-options="iconCls:'icon-chart-curve'" style="padding:5px;">
-            <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-            </ul>
-        </div>
-        <div title="系统设置" data-options="iconCls:'icon-wrench'" style="padding:5px;">
-            <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
-                <li iconCls="icon-application-osx-error"><a href="javascript:void(0)" data-icon="icon-application-osx-error" data-link="temp/layout-3.html" iframe="0">导航标题</a></li>
+                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="dict/toList" iframe="0">数据字典管理</a></li>
+                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">查询产品信息</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">查询库存</a></li>
             </ul>
         </div>
     </div>
@@ -110,7 +76,7 @@
 <!-- begin of main -->
 <div class="wu-main" data-options="region:'center'">
     <div id="wu-tabs" class="easyui-tabs" data-options="border:false,fit:true">
-        <div title="首页" data-options="href:'cust/cust/activities_add.jsp',closable:false,iconCls:'icon-tip',cls:'pd3'"></div>
+        <div title="首页" data-options="href:'',closable:false,iconCls:'icon-tip',cls:'pd3'"></div>
     </div>
 </div>
 <!-- end of main -->

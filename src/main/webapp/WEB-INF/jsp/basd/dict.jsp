@@ -4,7 +4,7 @@
         <div class="page_title">数据字典管理</div>
         <div class="button_bar">
             <button class="common_button" onclick="help('');">帮助</button>
-            <button class="common_button" onclick="to('dict_add.html');">新建</button>
+            <button class="common_button" onclick="to('dict/toAdd');">新建</button>
             <button class="common_button" onclick="reload();">查询</button>
         </div>
         <table class="query_form_table">
