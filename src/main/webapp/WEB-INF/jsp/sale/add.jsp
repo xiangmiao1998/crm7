@@ -7,7 +7,8 @@
             <button class="common_button" onclick="back();">返回</button>
             <button class="common_button" onclick="add('list.html');">保存</button>
         </div>
-        <table class="query_form_table">
+        <div id="wu-saleAdd" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:800px; padding:10px;height: 500px">
+        <table id="saleAdd" class="query_form_table">
             <tr>
                 <th>编号</th>
                 <td><input readonly /></td>
@@ -42,6 +43,7 @@
                 <td><input id="t1" name="T15" readonly size="20" /><span class="red_star">*</span></td>
             </tr>
         </table>
+        </div>
         <br />
         <table disabled class="query_form_table" id="table1">
             <tr>

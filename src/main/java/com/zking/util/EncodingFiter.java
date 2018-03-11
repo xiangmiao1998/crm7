@@ -40,7 +40,7 @@ public class EncodingFiter implements Filter {
 		response.setContentType("text/html;charset=" + this.encoding);
 
 		chain.doFilter(servletRequest, servletResponse);
-	}
+}
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		String s = filterConfig.getInitParameter("encoding");// 读取web.xml文件中配置的字符集

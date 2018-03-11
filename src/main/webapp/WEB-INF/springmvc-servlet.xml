@@ -20,6 +20,25 @@
     <!--@NumberFormatannotation支持，@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）-->
     <mvc:annotation-driven></mvc:annotation-driven>
 
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="mappingJackson2HttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <!--处理中文乱码以及避免IE执行AJAX时，返回JSON出现下载文件-->
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+                <value>text/json;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
     <!--3) ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- viewClass需要在pom中引入两个包：standard.jar and jstl.jar -->

@@ -1,142 +1,77 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script type="text/javascript" src="js/xmjs/listDict.js"></script>
 <div class="easyui-layout" data-options="fit:true">
     <div class="easyui-panel pd5" data-options="fit:true,border:true">
         <div class="page_title">数据字典管理</div>
         <div class="button_bar">
             <button class="common_button" onclick="help('');">帮助</button>
-            <button class="common_button" onclick="to('dict/toAdd');">新建</button>
-            <button class="common_button" onclick="reload();">查询</button>
+            <button class="common_button" onclick="openAdd()">新建</button>
+            <button class="common_button" id="listBtn">查询</button>
         </div>
         <table class="query_form_table">
             <tr>
                 <th>类别</th>
-                <td><input /></td>
+                <td><input id="dictType" /></td>
                 <th>条目</th>
-                <td><input /></td>
+                <td><input id="dictItem" /></td>
                 <th>值</th>
-                <td><input /></td>
+                <td><input id="dictValue" /></td>
             </tr>
         </table>
         <br />
-        <table class="data_list_table">
-            <tr>
-                <th>编号</th>
-                <th>类别</th>
-                <th>条目</th>
-                <th>值</th>
-                <th>是否可编辑</th>
-                <th>操作</th>
-            </tr>
-            <tr>
-                <td class="list_data_number">1</td>
-                <td class="list_data_ltext">企业客户等级</td>
-                <td class="list_data_text">普通客户</td>
-                <td class="list_data_text">1</td>
-                <td class="list_data_text">否</td>
-                <td class="list_data_op">　</td>
-            </tr>
-            <tr>
-                <td class="list_data_number">2</td>
-                <td class="list_data_ltext">企业客户等级</td>
-                <td class="list_data_text">重点开发客户</td>
-                <td class="list_data_text">2</td>
-                <td class="list_data_text">否</td>
-                <td class="list_data_op">　</td>
-            </tr>
-            <tr>
-                <td class="list_data_number">3</td>
-                <td class="list_data_ltext">企业客户等级</td>
-                <td class="list_data_text">大客户</td>
-                <td class="list_data_text">3</td>
-                <td class="list_data_text">否</td>
-                <td class="list_data_op">　</td>
-            </tr>
-            <tr>
-                <td class="list_data_number">4</td>
-                <td class="list_data_ltext">企业客户等级</td>
-                <td class="list_data_text">合作伙伴</td>
-                <td class="list_data_text">4</td>
-                <td class="list_data_text">否</td>
-                <td class="list_data_op">　</td>
-            </tr>
-            <tr>
-                <td class="list_data_number">5</td>
-                <td class="list_data_ltext">企业客户等级</td>
-                <td class="list_data_text">战略合作伙伴</td>
-                <td class="list_data_text">5</td>
-                <td class="list_data_text">否</td>
-                <td class="list_data_op">　</td>
-            </tr>
-            <tr>
-                <td class="list_data_number">6</td>
-                <td class="list_data_ltext">服务类型</td>
-                <td class="list_data_text">咨询</td>
-                <td class="list_data_text">咨询</td>
-                <td class="list_data_text">是</td>
-                <td class="list_data_op">
-                    <img onclick="to('dict_edit.html');" title="编辑" src="images/bt_edit.gif" class="op_button" />
-                    <img onclick="del('“服务类型：咨询”');" title="删除" src="images/bt_del.gif" class="op_button" />
-                </td>
-            </tr>
-            <tr>
-                <td class="list_data_number">7</td>
-                <td class="list_data_ltext">服务类型</td>
-                <td class="list_data_text">投诉</td>
-                <td class="list_data_text">投诉</td>
-                <td class="list_data_text">是</td>
-                <td class="list_data_op">
-                    <img onclick="to('dict_edit.html');" title="编辑" src="images/bt_edit.gif" class="op_button" />
-                    <img onclick="del('“服务类型：投诉”');" title="删除" src="images/bt_del.gif" class="op_button" />
-                </td>
-            </tr>
-            <tr>
-                <td class="list_data_number">8</td>
-                <td class="list_data_ltext">服务类型</td>
-                <td class="list_data_text">建议</td>
-                <td class="list_data_text">建议</td>
-                <td class="list_data_text">是</td>
-                <td class="list_data_op">
-                    <img onclick="to('dict_edit.html');" title="编辑" src="images/bt_edit.gif" class="op_button" />
-                    <img onclick="del('“服务类型：建议”');" title="删除" src="images/bt_del.gif" class="op_button" />
-                </td>
-            </tr>
-            <tr>
-                <td class="list_data_number">9</td>
-                <td class="list_data_ltext">地区</td>
-                <td class="list_data_text">北京</td>
-                <td class="list_data_text">1</td>
-                <td class="list_data_text">是</td>
-                <td class="list_data_op">
-                    <img onclick="to('dict_edit.html');" title="编辑" src="images/bt_edit.gif" class="op_button" />
-                    <img onclick="del('“服务类型：建议”');" title="删除" src="images/bt_del.gif" class="op_button" />
-                </td>
-            </tr>
-            <tr>
-                <td class="list_data_number">10</td>
-                <td class="list_data_ltext">地区</td>
-                <td class="list_data_text">华北</td>
-                <td class="list_data_text">2</td>
-                <td class="list_data_text">是</td>
-                <td class="list_data_op">
-                    <img onclick="to('dict_edit.html');" title="编辑" src="images/bt_edit.gif" class="op_button" />
-                    <img onclick="del('“服务类型：建议”');" title="删除" src="images/bt_del.gif" class="op_button" />
-                </td>
-            </tr>
-            <tr>
-                <th colspan="6" class="pager">
-                    <div class="pager">
-                        共59条记录 每页<input value="10" size="2" />条
-                        第<input value="1" size="2"/>页/共5页
-                        <a href="#">第一页</a>
-                        <a href="#">上一页</a>
-                        <a href="#">下一页</a>
-                        <a href="#">最后一页</a>
-                        转到<input value="1" size="2" />页
-                        <button width="20" onclick="reload();">GO</button>
-                    </div>
-                </th>
-            </tr>
+        <table id="ta" class="easyui-datagrid">
+
         </table>
+        <div id="wu-dictAdd" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:800px; padding:10px;height: 500px">
+            <form id="wu-add" method="post">
+                    <table class="query_form_table">
+                        <tr>
+                            <th>编号</th>
+                            <td><input readonly /></td>
+                            <th>类别</th>
+                            <td><input type="text" name="dictType"/><span class="red_star">*</span><br />（需要使用Ajax实现自动补全功能）</td>
+                        </tr>
+                        <tr>
+                            <th>条目</th>
+                            <td><input type="text" name="dictItem" /><span class="red_star">*</span></td>
+                            <th>值</th>
+                            <td><input type="text" name="dictValue" /><span class="red_star">*</span></td>
+                        </tr>
+                        <tr>
+                            <th>是否可编辑</th>
+                            <td><input name="dictIsEditable" type="checkbox" checked="true" /></td>
+                            <th>&nbsp;</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+            </form>
+        </div>
+
+
+        <div id="wu-dictedit" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:800px; padding:10px;height: 500px">
+            <form id="wu-edit" method="post">
+                <table class="query_form_table">
+                    <tr>
+                        <th>编号</th>
+                        <td><input name="dictId" aria-readonly="true" /></td>
+                        <th>类别</th>
+                        <td><input type="text" name="dictType"/><span class="red_star">*</span><br />（需要使用Ajax实现自动补全功能）</td>
+                    </tr>
+                    <tr>
+                        <th>条目</th>
+                        <td><input type="text" name="dictItem" /><span class="red_star">*</span></td>
+                        <th>值</th>
+                        <td><input type="text" name="dictValue" /><span class="red_star">*</span></td>
+                    </tr>
+                    <tr>
+                        <th>是否可编辑</th>
+                        <td><input name="dictIsEditable" type="checkbox" checked="true" /></td>
+                        <th>&nbsp;</th>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </div>
 

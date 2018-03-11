@@ -1,6 +1,8 @@
 package com.zking.xm.model;
 
-public class UserXm {
+import java.io.Serializable;
+
+public class UserXm implements Serializable{
     private Integer usrId;
 
     private String usrName;
@@ -61,5 +63,16 @@ public class UserXm {
 
     public void setUsrFlag(Integer usrFlag) {
         this.usrFlag = usrFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "UserXm{" +
+                "usrId=" + usrId +
+                ", usrName='" + usrName + '\'' +
+                ", usrPassword='" + usrPassword + '\'' +
+                ", usrRoleId=" + usrRoleId +
+                ", usrFlag=" + usrFlag +
+                '}';
     }
 }
