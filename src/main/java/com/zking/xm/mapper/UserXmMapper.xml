@@ -10,6 +10,20 @@
       <arg column="usr_flag" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
+
+  <resultMap id="User" type="com.zking.xm.model.UserXm" >
+      <id column="usr_id" property="usrId" javaType="java.lang.Integer" />
+      <result column="usr_name" property="usrName" javaType="java.lang.String" />
+      <result column="usr_password" property="usrPassword" javaType="java.lang.String" />
+      <result column="usr_role_id" property="usrRoleId" javaType="java.lang.Long" />
+      <result column="usr_flag" property="usrFlag" javaType="java.lang.Integer" />
+    <association property="role" javaType="com.zking.xm.model.Role">
+      <id column="role_id" property="roleId" javaType="java.lang.Long" />
+      <result column="role_name" property="roleName" javaType="java.lang.String" />
+      <result column="role_desc" property="roleDesc" javaType="java.lang.String" />
+      <result column="role_flag" property="roleFlag" javaType="java.lang.Integer" />
+    </association>
+  </resultMap>
   <sql id="Base_Column_List" >
     usr_id, usr_name, usr_password, usr_role_id, usr_flag
   </sql>
@@ -23,7 +37,12 @@
       select *
       from sys_user
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <select id="load" resultMap="BaseResultMap" parameterType="com.zking.xm.model.UserXm">
+    select *
+    from sys_user
+    where usr_name like concat('%',#{usrName,jdbcType=VARCHAR} ,'%')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from sys_user
     where usr_id = #{usrId,jdbcType=INTEGER}
   </delete>

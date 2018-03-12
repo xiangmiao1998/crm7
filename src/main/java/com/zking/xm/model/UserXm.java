@@ -13,6 +13,16 @@ public class UserXm implements Serializable{
 
     private Integer usrFlag;
 
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public UserXm(Integer usrId, String usrName, String usrPassword, Long usrRoleId, Integer usrFlag) {
         this.usrId = usrId;
         this.usrName = usrName;

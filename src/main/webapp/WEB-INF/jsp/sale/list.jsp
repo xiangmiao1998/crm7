@@ -58,7 +58,7 @@
                 </tr>
                 <tr>
                     <th>创建人</th>
-                    <td><input value="刘颖" readonly size="20" /><span class="red_star">*</span></td>
+                    <td><input value="${sessionScope.user.usrName}" readonly size="20" /><span class="red_star">*</span></td>
                     <th>创建时间</th>
                     <%
                         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -50,6 +50,13 @@ public class DictController {
         return data;
     }
 
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public List<DictXm> list(DictXm dictXm) {
+        return dictBiz.list(dictXm, null);
+    }
+
     @RequestMapping("/loaddict")
     @ResponseBody
     public DictXm loadDict(DictXm dictXm) {

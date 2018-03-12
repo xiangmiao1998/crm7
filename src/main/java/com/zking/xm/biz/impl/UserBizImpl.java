@@ -21,6 +21,6 @@ public class UserBizImpl implements IUserBiz {
 
     @Override
     public UserXm load(UserXm userXm) {
-        return userXmMapper.selectByPrimaryKey(userXm.getUsrId());
+        return userXmMapper.load(userXm);
     }
 }

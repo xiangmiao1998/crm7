@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.xm.mapper.StorageMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.xm.model.Storage" >
+    <constructor >
+      <idArg column="stk_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="stk_prod_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="stk_warehouse" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="stk_ware" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="stk_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="stk_memo" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+  <resultMap id="Storage" type="com.zking.xm.model.Storage" >
+      <id column="stk_id" property="stkId" javaType="java.lang.Long" />
+      <result column="stk_prod_id" property="stkProdId" javaType="java.lang.Long" />
+      <result column="stk_warehouse" property="stkWarehouse" javaType="java.lang.String" />
+      <result column="stk_ware" property="stkWare" javaType="java.lang.String" />
+      <result column="stk_count" property="stkCount" javaType="java.lang.Integer" />
+      <result column="stk_memo" property="stkMemo" javaType="java.lang.String" />
+    <association property="product" javaType="com.zking.xm.model.Product">
+      <id column="prod_id" property="prodId" javaType="java.lang.Long" />
+      <result column="prod_name" property="prodName" javaType="java.lang.String" />
+      <result column="prod_type" property="prodType" javaType="java.lang.String" />
+      <result column="prod_batch" property="prodBatch" javaType="java.lang.String" />
+      <result column="prod_unit" property="prodUnit" javaType="java.lang.String" />
+      <result column="prod_price" property="prodPrice" javaType="java.lang.Float" />
+      <result column="prod_memo" property="prodMemo" javaType="java.lang.String" />
+    </association>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    stk_id, stk_prod_id, stk_warehouse, stk_ware, stk_count, stk_memo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from storage
+    where stk_id = #{stkId,jdbcType=BIGINT}
+  </select>
+    <select id="list" resultMap="Storage" parameterType="com.zking.xm.model.Storage">
+      select s.*, p.*
+      from storage s left outer join product p on s.stk_prod_id = p.prod_id
+      where 1=1
+      <if test="pName != null and '' != pName">
+        and p.prod_name like concat('%',#{pName} , '%')
+      </if>
+      <if test="stkWarehouse != null and '' != stkWarehouse">
+        and s.stk_warehouse like concat('%',#{stkWarehouse,jdbcType=VARCHAR} ,'%')
+      </if>
+     /* select *
+      from storage*/
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from storage
+    where stk_id = #{stkId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zking.xm.model.Storage" >
+    insert into storage (stk_id, stk_prod_id, stk_warehouse, 
+      stk_ware, stk_count, stk_memo
+      )
+    values (#{stkId,jdbcType=BIGINT}, #{stkProdId,jdbcType=BIGINT}, #{stkWarehouse,jdbcType=VARCHAR}, 
+      #{stkWare,jdbcType=VARCHAR}, #{stkCount,jdbcType=INTEGER}, #{stkMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.xm.model.Storage" >
+    insert into storage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stkId != null" >
+        stk_id,
+      </if>
+      <if test="stkProdId != null" >
+        stk_prod_id,
+      </if>
+      <if test="stkWarehouse != null" >
+        stk_warehouse,
+      </if>
+      <if test="stkWare != null" >
+        stk_ware,
+      </if>
+      <if test="stkCount != null" >
+        stk_count,
+      </if>
+      <if test="stkMemo != null" >
+        stk_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stkId != null" >
+        #{stkId,jdbcType=BIGINT},
+      </if>
+      <if test="stkProdId != null" >
+        #{stkProdId,jdbcType=BIGINT},
+      </if>
+      <if test="stkWarehouse != null" >
+        #{stkWarehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null" >
+        #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null" >
+        #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null" >
+        #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.xm.model.Storage" >
+    update storage
+    <set >
+      <if test="stkProdId != null" >
+        stk_prod_id = #{stkProdId,jdbcType=BIGINT},
+      </if>
+      <if test="stkWarehouse != null" >
+        stk_warehouse = #{stkWarehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null" >
+        stk_ware = #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null" >
+        stk_count = #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null" >
+        stk_memo = #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stk_id = #{stkId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.xm.model.Storage" >
+    update storage
+    set stk_prod_id = #{stkProdId,jdbcType=BIGINT},
+      stk_warehouse = #{stkWarehouse,jdbcType=VARCHAR},
+      stk_ware = #{stkWare,jdbcType=VARCHAR},
+      stk_count = #{stkCount,jdbcType=INTEGER},
+      stk_memo = #{stkMemo,jdbcType=VARCHAR}
+    where stk_id = #{stkId,jdbcType=BIGINT}
+  </update>
+</mapper>

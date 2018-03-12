@@ -34,10 +34,25 @@ public class UserBizImplTest {
 
     @Test
     public void list() throws Exception {
-        List<UserXm> list = userBiz.list(userXm);
-        for (UserXm u: list) {
-            System.out.println(u);
+//        List<UserXm> list = userBiz.list(userXm);
+//        for (UserXm u: list) {
+//            System.out.println(u);
+//        }
+//        String aa = "fff-000001";
+//        String cc = aa.substring(5);
+//        System.out.println(cc);
+//        Integer bb = Integer.parseInt(cc);
+//        System.out.println(bb+100);
+
+        int a= 111;
+        String aa = a+"";
+        System.out.println(aa.length());
+        String bb = aa;
+        for (int i=0;i<6-aa.length();i++) {
+            bb = "0" + bb;
+            System.out.println(bb);
         }
+        System.out.println(bb);
     }
 
 }

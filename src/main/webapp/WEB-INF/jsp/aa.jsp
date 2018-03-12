@@ -66,8 +66,8 @@
         <div title="基础数据" data-options="iconCls:'icon-bricks'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
                 <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="dict/toList" iframe="0">数据字典管理</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">查询产品信息</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">查询库存</a></li>
+                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="prod/toList" iframe="0">查询产品信息</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="stor/toList" iframe="0">查询库存</a></li>
             </ul>
         </div>
     </div>

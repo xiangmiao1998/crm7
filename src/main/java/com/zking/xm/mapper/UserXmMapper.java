@@ -16,6 +16,8 @@ public interface UserXmMapper {
 
     UserXm selectByPrimaryKey(Integer usrId);
 
+    UserXm load(UserXm userXm);
+
     List<UserXm> list(UserXm userXm);
 
     int updateByPrimaryKeySelective(UserXm record);

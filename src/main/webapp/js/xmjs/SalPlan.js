@@ -18,8 +18,13 @@ $(function () {
                 $.ajax({
                     url: 'sale/kfcg?chcId=' + chcId,
                     data: '',
-                    success: function () {
-
+                    success: function (data) {
+                        if (1 == data) {
+                            $.messager.alert('警告', '开发成功，保存一条新纪录！');
+                            $("#salPlan").datagrid("reload");
+                        } else {
+                            $.messager.alert('警告', '保存失败！');
+                        }
                     }
                 });
             }
@@ -216,7 +221,7 @@ $(function () {
                 });
             }
         }],
-        url: "sale/listSale?chcStatus='未指派'",
+        url: "sale/listSale?chcStatus='未指派'&&panduan=plan",
         columns: [[{
             field: 'chcId',
             title: '编号',

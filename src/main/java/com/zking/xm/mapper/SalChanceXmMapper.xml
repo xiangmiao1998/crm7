@@ -65,6 +65,9 @@
       <if test="chcStatus != null">
         and chc_status != ${chcStatus}
       </if>
+      <if test="chcDueId != null">
+        and chc_due_id = ${chcDueId}
+      </if>
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from sal_chance

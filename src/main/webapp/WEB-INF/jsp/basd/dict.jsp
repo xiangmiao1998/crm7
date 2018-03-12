@@ -1,5 +1,39 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script type="text/javascript" src="js/xmjs/listDict.js"></script>
+<script type="text/javascript">
+
+    function mysa(dictType){
+        $("#dictTyp").val(dictType);
+        $("#pa").hide();
+    }
+
+    function myzd(dictType){//自动补全
+        $("#pa").show();
+        $.ajax({
+            url:"dict/list",
+            data:"dictType="+dictType,
+            dataType:"text",
+            success:function(str){
+                var ss = eval(str);
+                var str="";
+                //遍历集合
+                for(var i=0;i<ss.length;i++){
+                    if(i==0){
+                        str+="<ul>";
+                    }
+                    str+="<li onmouseover=\"this.className='la'\" onmouseout=\"this.className='lb'\" onclick=\"mysa('"+ss[i].dictType+"')\">"+ss[i].dictType+"</li>";
+                    if(i==ss.length){
+                        str+="</ul>";
+                    }
+                }
+                $("#pa").html(str);
+            },
+            error:function(){
+                alert("错了");
+            }
+        });
+    }
+</script>
 <div class="easyui-layout" data-options="fit:true">
     <div class="easyui-panel pd5" data-options="fit:true,border:true">
         <div class="page_title">数据字典管理</div>
@@ -29,7 +63,12 @@
                             <th>编号</th>
                             <td><input readonly /></td>
                             <th>类别</th>
-                            <td><input type="text" name="dictType"/><span class="red_star">*</span><br />（需要使用Ajax实现自动补全功能）</td>
+                            <td><input id="dictTyp" type="text" onkeyup="myzd(this.value)" name="dictType"/><span class="red_star">*</span><br />
+                            <br/>
+                                <div id="pa" style="position:absolute; top:65px; left:0px;width: 155px;margin-left:550px;border-color: #DCDCDC;border-style: groove;display:none;background-color: white;">
+
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <th>条目</th>
