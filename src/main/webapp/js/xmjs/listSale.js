@@ -211,7 +211,7 @@ $(function () {
                 });
             }
         }],
-        url: 'sale/listSale',
+        url: 'sale/listSale?panduan=chance',
         columns: [[{
             field: 'chcId',
             title: '编号',

@@ -14,6 +14,14 @@ $(function () {
                     $.messager.alert('警告', '请选择行');
                     return;
                 }
+                if(rows.chcStatus=='开发成功'){
+                    $.messager.alert('警告', '已开发成功只能查看！');
+                    return;
+                }
+                if(rows.chcStatus=='开发失败'){
+                    $.messager.alert('警告', '已终止开发只能查看！');
+                    return;
+                }
                 var chcId = rows.chcId;
                 $.ajax({
                     url: 'sale/kfcg?chcId=' + chcId,
@@ -37,6 +45,14 @@ $(function () {
                     $.messager.alert('警告', '请选择行');
                     return;
                 }
+                if(rows.chcStatus=='开发成功'){
+                    $.messager.alert('警告', '已开发成功只能查看！');
+                    return;
+                }
+                if(rows.chcStatus=='开发失败'){
+                    $.messager.alert('警告', '已终止开发只能查看！');
+                    return;
+                }
                 var chcId = rows.chcId;
                 $.ajax({
                     url: "sale/edit?chcId=" + chcId + "&&chcStatus='开发失败'",
@@ -53,6 +69,14 @@ $(function () {
                 var rows = $("#salPlan").datagrid("getSelected");
                 if (!rows) {
                     $.messager.alert('警告', '请选择行');
+                    return;
+                }
+                if(rows.chcStatus=='开发成功'){
+                    $.messager.alert('警告', '已开发成功只能查看！');
+                    return;
+                }
+                if(rows.chcStatus=='开发失败'){
+                    $.messager.alert('警告', '已终止开发只能查看！');
                     return;
                 }
                 var chcId = rows.chcId;
@@ -83,6 +107,14 @@ $(function () {
                             var rows = $("#table1").datagrid("getSelected");
                             if (!rows) {
                                 $.messager.alert('警告', '请选择要删除的计划！');
+                                return;
+                            }
+                            if(rows.chcStatus=='开发成功'){
+                                $.messager.alert('警告', '已开发成功只能查看！');
+                                return;
+                            }
+                            if(rows.chcStatus=='开发失败'){
+                                $.messager.alert('警告', '已终止开发只能查看！');
                                 return;
                             }
                             $.messager.confirm('确认', '您确定删除该条计划吗？', function (r) {
@@ -151,6 +183,14 @@ $(function () {
                     $.messager.alert('警告', '请选择要处理的记录！');
                     return;
                 }
+                if(rows.chcStatus=='开发成功'){
+                    $.messager.alert('警告', '已开发成功只能查看！');
+                    return;
+                }
+                if(rows.chcStatus=='开发失败'){
+                    $.messager.alert('警告', '已终止开发只能查看！');
+                    return;
+                }
                 var chcId = rows.chcId;
                 $('#wu-doPlan').dialog({
                     closed: false,
@@ -201,6 +241,54 @@ $(function () {
                             });
                         }
                     }],
+                    url: 'salPlan/list?plaChcId=' + chcId,
+                    columns: [[{
+                        field: 'plaDate',
+                        title: '日期',
+                        width: "150"
+                    }, {
+                        field: 'plaTodo',
+                        title: '计划内容',
+                        width: "300"
+                    }, {
+                        field: 'plaResult',
+                        title: '执行结果',
+                        width: '300'
+                    }, {
+                        field: 'plaId',
+                        hidden: true
+                    }]]
+                });
+            }
+        }, '-',{
+            iconCls: 'icon-tip',
+            text: '查看明细',
+            handler:function () {
+                var rows = $("#salPlan").datagrid("getSelected");
+                if (!rows) {
+                    $.messager.alert('警告', '请选择要查看的记录！');
+                    return;
+                }
+                var chcId = rows.chcId;
+                $('#wu-doPlan').dialog({
+                    closed: false,
+                    modal: true
+                });
+                $.ajax({
+                    url: 'sale/loadSale?chcId=' + chcId,
+                    data: '',
+                    success: function (data) {
+                        if (data != null) {
+                            //绑定值
+                            $('#f-doChanceLoad').form('load', data)
+                        }
+                        else {
+                            $('#wu-doPlan').dialog('close');
+                        }
+
+                    }
+                });
+                $('#doPlanList').datagrid({
                     url: 'salPlan/list?plaChcId=' + chcId,
                     columns: [[{
                         field: 'plaDate',
