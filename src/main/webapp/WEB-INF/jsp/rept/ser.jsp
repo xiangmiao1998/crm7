@@ -1,16 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<body onload="aa()">
 <div class="easyui-layout" data-options="fit:true">
     <div class="easyui-panel pd5" data-options="fit:true,border:true">
         <div class="page_title">客户服务分析</div>
         <div class="button_bar">
-            <button class="common_button" onclick="help('');">帮助</button>
-            <button class="common_button" onclick="reload();">查询</button>
+            <button class="common_button">帮助</button>
+            <button class="common_button" onclick="aa()">查询</button>
         </div>
         <table class="query_form_table">
             <tr>
                 <th>年份</th>
                 <td>
-                    <select>
+                    <select id="yd">
                         <option>全部</option>
                         <option>2005</option>
                         <option>2006</option>
@@ -18,6 +20,14 @@
                         <option>2008</option>
                         <option>2009</option>
                         <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
                     </select>
                 </td>
                 <th>&nbsp;</th>
@@ -27,27 +37,8 @@
             </tr>
         </table>
         <br />
-        <table class="data_list_table">
-            <tr>
-                <th>编号</th>
-                <th>条目</th>
-                <th>服务数量</th>
-            </tr>
-            <tr>
-                <td class="list_data_number">1</td>
-                <td class="list_data_text">建议</td>
-                <td class="list_data_number">12</td>
-            </tr>
-            <tr>
-                <td class="list_data_number">2</td>
-                <td class="list_data_text">咨询</td>
-                <td class="list_data_number">26</td>
-            </tr>
-            <tr>
-                <td class="list_data_number">3</td>
-                <td class="list_data_text">投诉</td>
-                <td class="list_data_number">38</td>
-            </tr>
-        </table>
+        <div id="chart2" style="width: 500px;"></div>
     </div>
 </div>
+</body>
+</html>

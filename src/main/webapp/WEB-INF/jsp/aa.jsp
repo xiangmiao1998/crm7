@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,6 +9,7 @@
     <base href="<%=basePath%>">
     <meta name="copyright" content="All Rights Reserved, Copyright (C) 2013, Wuyeguo, Ltd." />
     <title>客户关系管理系统</title>
+    <script src="script/jQuery.js"></script>
     <link rel="stylesheet" type="text/css" href="easyui/1.3.4/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="css/wu.css" />
     <link rel="stylesheet" type="text/css" href="css/icon.css" />
@@ -18,6 +18,8 @@
     <script type="text/javascript" src="easyui/1.3.4/locale/easyui-lang-zh_CN.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="script/common.js"></script>
+    <script src="script/jqplot.js"></script>
+    <script src="script/m_jqplot.js"></script>
 </head>
 <body class="easyui-layout">
 <!-- begin of header -->
@@ -58,8 +60,8 @@
         <div title="统计报表" data-options="iconCls:'icon-cart'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
                 <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">客户贡献分析</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">客户贡献分析</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">客户服务分析</a></li>
+                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">客户构成分析</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="holle/toSer" iframe="0">客户服务分析</a></li>
                 <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">客户流失分析</a></li>
             </ul>
         </div>
@@ -173,6 +175,31 @@
             var index = tabPanel.tabs('getTabIndex', tab);
             tabPanel.tabs('close', index);
         }
+    }
+
+
+    /**
+     * 客户服务分析
+     */
+    function aa() {
+        var yd = $("#yd").val();
+        alert('123');
+        $.ajax({
+            url: "sati/listGroup",
+            dataType: "text",
+            success: function (str) {
+                var data = [];
+                var data_max = 15; //Y轴最大刻度
+                var line_title = []; //曲线名称
+                var y_label = ""; //Y轴标题
+                var x_label = ""; //X轴标题
+                var x = ["咨询","建议","投诉"]; //定义X轴刻度值
+                var title = "这是标题"; //统计图标标题
+                var dd = eval(str);
+                data.push(dd);
+                j.jqplot.diagram.base("chart2", data, title, "客户服务分析", x, x_label, y_label, data_max, 1);
+            }
+        });
     }
 </script>
 </body>

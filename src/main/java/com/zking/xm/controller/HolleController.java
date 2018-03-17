@@ -21,6 +21,11 @@ public class HolleController {
         return "basd/dict_add";
     }
 
+    @RequestMapping("/toSer")
+    public String toSer() {
+        return "rept/ser";
+    }
+
 
     @RequestMapping("/getUser")
     @ResponseBody

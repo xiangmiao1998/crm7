@@ -81,15 +81,14 @@
             &lt;!&ndash; <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> &ndash;&gt;
         </table>-->
 
-        <table schema="" tableName="dict_is_editable" domainObjectName="DictXm"
-               enableCountByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" enableUpdateByExample="false">
-        </table>
 
-        <!--
-        <table schema="" tableName="book" domainObjectName="Book"
+        <!--<table schema="" tableName="orders" domainObjectName="Orders"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
         </table>-->
+        <table schema="" tableName="svr_satisfy" domainObjectName="Satisfy"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+        </table>
     </context>
 </generatorConfiguration>

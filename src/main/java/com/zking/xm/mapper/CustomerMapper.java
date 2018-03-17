@@ -3,6 +3,8 @@ package com.zking.xm.mapper;
 import com.zking.xm.model.Customer;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CustomerMapper {
     int deleteByPrimaryKey(String custNo);
@@ -18,4 +20,6 @@ public interface CustomerMapper {
     int updateByPrimaryKeySelective(Customer record);
 
     int updateByPrimaryKey(Customer record);
+
+    List<Customer> listCount(Customer customer);
 }

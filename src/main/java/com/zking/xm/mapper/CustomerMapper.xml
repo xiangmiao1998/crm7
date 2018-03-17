@@ -44,7 +44,10 @@
       select COUNT(*)
       from cst_customer
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <select id="listCount" resultType="com.zking.xm.model.Customer" parameterType="com.zking.xm.model.Customer">
+
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from cst_customer
     where cust_no = #{custNo,jdbcType=CHAR}
   </delete>

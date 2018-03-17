@@ -44,15 +44,18 @@ public class UserBizImplTest {
 //        Integer bb = Integer.parseInt(cc);
 //        System.out.println(bb+100);
 
-        int a= 111;
-        String aa = a+"";
-        System.out.println(aa.length());
-        String bb = aa;
-        for (int i=0;i<6-aa.length();i++) {
-            bb = "0" + bb;
-            System.out.println(bb);
+//        int a= 111;
+//        String aa = a+"";
+//        System.out.println(aa.length());
+//        String bb = aa;
+//        for (int i=0;i<6-aa.length();i++) {
+//            bb = "0" + bb;
+//            System.out.println(bb);
+//        }
+//        System.out.println(bb);
+        for (int i=0;i<2;i++) {
+            System.out.println("12321");
         }
-        System.out.println(bb);
     }
 
 }
