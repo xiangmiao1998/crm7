@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/userXm")
 public class UserController {
 
     @Autowired

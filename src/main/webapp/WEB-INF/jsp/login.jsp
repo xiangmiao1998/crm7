@@ -76,7 +76,7 @@
             <IMG SRC="images/login/login_09.jpg" WIDTH=15 HEIGHT=141 ALT=""></TD>
 
         <TD COLSPAN=2 ROWSPAN=2 background="images/login/login_10.jpg" >
-            <form action="user/load" id="f-login" method="post">
+            <form action="userXm/load" id="f-login" method="post">
             <table width="100%">
                 <tr>
                     <th>用户名</th>

@@ -44,17 +44,17 @@
         </div>
         <div title="客户管理" data-options="iconCls:'icon-application-form-edit'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">客户信息管理</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">客户流失管理</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="customerLQ/look" iframe="0">客户信息管理</a></li>
+                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="lostLQ/look" iframe="0">客户流失管理</a></li>
             </ul>
         </div>
         <div title="服务管理" data-options="iconCls:'icon-creditcards'" style="padding:5px;">
             <ul class="easyui-tree wu-side-tree">
-                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="layout-3.html" iframe="0">服务创建</a></li>
-                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="temp/layout-3.html" iframe="0">服务分配</a></li>
-                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="temp/layout-3.html" iframe="0">服务处理</a></li>
-                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="temp/layout-3.html" iframe="0">服务反馈</a></li>
-                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="temp/layout-3.html" iframe="0">服务归档</a></li>
+                <li iconCls="icon-chart-organisation"><a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="service/toAdd" iframe="0">服务创建</a></li>
+                <li iconCls="icon-users"><a href="javascript:void(0)" data-icon="icon-users" data-link="service/toDispatch" iframe="0">服务分配</a></li>
+                <li iconCls="icon-user-group"><a href="javascript:void(0)" data-icon="icon-user-group" data-link="service/toDeal" iframe="0">服务处理</a></li>
+                <li iconCls="icon-book"><a href="javascript:void(0)" data-icon="icon-book" data-link="service/toFeedback" iframe="0">服务反馈</a></li>
+                <li iconCls="icon-cog"><a href="javascript:void(0)" data-icon="icon-cog" data-link="service/toArch" iframe="0">服务归档</a></li>
             </ul>
         </div>
         <div title="统计报表" data-options="iconCls:'icon-cart'" style="padding:5px;">

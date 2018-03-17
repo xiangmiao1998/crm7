@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.lq.mapper.OrdersLQMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.lq.model.OrdersLQ" >
+    <constructor >
+      <idArg column="odr_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="odr_customer" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="odr_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="odr_addr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="odr_status" jdbcType="CHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ordersLQ" type="com.zking.lq.model.OrdersLQ" >
+      <id column="odr_id" property="odrId" javaType="java.lang.Long" />
+      <result column="odr_customer" property="odrCustomer" javaType="java.lang.String" />
+      <result column="odr_date" property="odrDate" javaType="java.util.Date" />
+      <result column="odr_addr" property="odrAddr" javaType="java.lang.String" />
+      <result column="odr_status" property="odrStatus" javaType="java.lang.String" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    odr_id, odr_customer, odr_date, odr_addr, odr_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ordersLQ" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where odr_id = #{odrId,jdbcType=BIGINT}
+  </select>
+    <select id="list" resultMap="ordersLQ" parameterType="com.zking.lq.model.OrdersLQ">
+      select *
+      from orders
+      where odr_customer=#{odrCustomer,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from orders
+    where odr_id = #{odrId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zking.lq.model.OrdersLQ" >
+    insert into orders (odr_id, odr_customer, odr_date, 
+      odr_addr, odr_status)
+    values (#{odrId,jdbcType=BIGINT}, #{odrCustomer,jdbcType=VARCHAR}, #{odrDate,jdbcType=TIMESTAMP}, 
+      #{odrAddr,jdbcType=VARCHAR}, #{odrStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.lq.model.OrdersLQ" >
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="odrId != null" >
+        odr_id,
+      </if>
+      <if test="odrCustomer != null" >
+        odr_customer,
+      </if>
+      <if test="odrDate != null" >
+        odr_date,
+      </if>
+      <if test="odrAddr != null" >
+        odr_addr,
+      </if>
+      <if test="odrStatus != null" >
+        odr_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="odrId != null" >
+        #{odrId,jdbcType=BIGINT},
+      </if>
+      <if test="odrCustomer != null" >
+        #{odrCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null" >
+        #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null" >
+        #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null" >
+        #{odrStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.lq.model.OrdersLQ" >
+    update orders
+    <set >
+      <if test="odrCustomer != null" >
+        odr_customer = #{odrCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null" >
+        odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null" >
+        odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null" >
+        odr_status = #{odrStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where odr_id = #{odrId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.lq.model.OrdersLQ" >
+    update orders
+    set odr_customer = #{odrCustomer,jdbcType=VARCHAR},
+      odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      odr_status = #{odrStatus,jdbcType=CHAR}
+    where odr_id = #{odrId,jdbcType=BIGINT}
+  </update>
+</mapper>

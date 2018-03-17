@@ -1,192 +1,126 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script type="text/javascript" src="js/zhou/listArch.js"></script>
 <div class="easyui-layout" data-options="fit:true">
     <div class="easyui-panel pd5" data-options="fit:true,border:true">
         <div class="page_title">客户服务管理 &gt; 服务归档</div>
         <div class="button_bar">
             <button class="common_button" onclick="help('');">帮助</button>
-            <button class="common_button" onclick="reload();">查询</button>
+            <button class="common_button" id="load">查询</button>
         </div>
         <table class="query_form_table">
             <tr>
                 <th height="28">客户</th>
-                <td><input /></td>
+                <td><input id="svrCustName"/></td>
                 <th height="28">概要</th>
-                <td><input /></td>
+                <td><input id="svrTitle"/></td>
                 <th height="28">服务类型</th>
                 <td>
-                    <select name="D1">
+                    <select id="svrType">
                         <option>全部</option>
                         <option>咨询</option>
                         <option>建议</option>
-                        <option>投诉</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <th height="32">创建日期</th>
                 <td colspan="3">
-                    <input name="T2" size="10" /> - <input name="T1" size="10" /></td>
+                    <input id="svrCreateDate1" size="10" class="easyui-datebox"/> - <input id="svrCreateDate2" size="10" class="easyui-datebox"/></td>
                 <th height="32">状态</th>
                 <td>
-                    <select name="D1">
+                    <select id="svrStatus">
                         <option>全部</option>
                         <option>新创建</option>
                         <option>已分配</option>
                         <option>已处理</option>
-                        <option>已反馈</option>
                         <option>已归档</option>
                     </select>
                 </td>
             </tr>
         </table>
         <br />
-        <table class="data_list_table">
-            <tr>
-                <th>编号</th>
-                <th>客户</th>
-                <th>概要</th>
-                <th>服务类型</th>
-                <th>创建人</th>
-                <th>创建日期</th>
-                <th>状态</th>
-                <th>操作</th>
-            </tr>
-            <tr>
-                <td class="list_data_number">456</td>
-                <td class="list_data_text">太阳药业</td>
-                <td class="list_data_ltext">询问收音机订单运费承担方式</td>
-                <td class="list_data_text">咨询</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-                <td class="list_data_text">已分配</td>
-                <td class="list_data_op">
+        <table id="guid">
 
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number">455</td>
-                <td class="list_data_text">太阳药业</td>
-                <td class="list_data_ltext">询问收音机价格</td>
-                <td class="list_data_text">咨询</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-                <td class="list_data_text">已分配</td>
-                <td class="list_data_op">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number">454</td>
-                <td class="list_data_text">云南天河烟草公司</td>
-                <td class="list_data_ltext">询问收音机价格</td>
-                <td class="list_data_text">咨询</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-                <td class="list_data_text">已分配</td>
-                <td class="list_data_op">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number">453</td>
-                <td class="list_data_text">云南天河烟草公司</td>
-                <td class="list_data_ltext">询问收音机价格</td>
-                <td class="list_data_text">建议</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-
-                <td class="list_data_text">已分配</td>
-
-                <td class="list_data_op">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number">452</td>
-                <td class="list_data_text">云南天河烟草公司</td>
-                <td class="list_data_ltext">询问收音机价格</td>
-                <td class="list_data_text">咨询</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-                <td class="list_data_text">已分配</td>
-                <td class="list_data_op">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number">451</td>
-                <td class="list_data_text">云南天河烟草公司</td>
-                <td class="list_data_ltext">询问收音机价格</td>
-                <td class="list_data_text">投诉</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-                <td class="list_data_text">已分配</td>
-                <td class="list_data_op">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number" height="15">540</td>
-                <td class="list_data_text" height="15">云南天河烟草公司</td>
-                <td class="list_data_ltext" height="15">询问收音机价格</td>
-                <td class="list_data_text" height="15">建议</td>
-                <td class="list_data_text" height="15">小明</td>
-                <td class="list_data_text" height="15">2007年12月02日</td>
-                <td class="list_data_text" height="15">已分配</td>
-                <td class="list_data_op" height="15">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number" height="35">439</td>
-                <td class="list_data_text" height="35">云南天河烟草公司</td>
-                <td class="list_data_ltext" height="35">询问收音机价格</td>
-                <td class="list_data_text" height="35">咨询</td>
-                <td class="list_data_text" height="35">小明</td>
-                <td class="list_data_text" height="35">2007年12月02日</td>
-                <td class="list_data_text" height="35">已分配</td>
-                <td class="list_data_op" height="35">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number">438</td>
-                <td class="list_data_text">云南天河烟草公司</td>
-                <td class="list_data_ltext">询问收音机价格</td>
-                <td class="list_data_text">建议</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-                <td class="list_data_text">已分配</td>
-                <td class="list_data_op">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <td class="list_data_number">437</td>
-                <td class="list_data_text">云南天河烟草公司</td>
-                <td class="list_data_ltext">询问收音机价格</td>
-                <td class="list_data_text">建议</td>
-                <td class="list_data_text">小明</td>
-                <td class="list_data_text">2007年12月02日</td>
-                <td class="list_data_text">已分配</td>
-                <td class="list_data_op">
-
-                    <img onclick="to('detail.html');" title="查看" src="images/bt_detail.gif" class="op_button" /></td>
-            </tr>
-            <tr>
-                <th colspan="8" class="pager">
-                    <div class="pager">
-                        共59条记录 每页<input value="10" size="2" />条
-                        第<input value="1" size="2"/>页/共5页
-                        <a href="#">第一页</a>
-                        <a href="#">上一页</a>
-                        <a href="#">下一页</a>
-                        <a href="#">最后一页</a>
-                        转到<input value="1" size="2" />页
-                        <button width="20" onclick="reload();">GO</button>
-                    </div>
-                </th>
-            </tr>
         </table>
+
+        <!--弹出框-->
+        <div id="wu-arch" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width: 650px;padding: 3px;padding:3px;height: 300px">
+            <form id="guidang" method="post">
+                <table class="query_form_table">
+                    <tr>
+                        <th>编号</th>
+                        <td><input type="text" name="svrId"/></td>
+                        <th>服务类型</th>
+                        <td>
+                            <input type="text" name="svrType"/></td>
+                    </tr>
+                    <tr>
+                        <th>概要</th>
+                        <td colspan="3"><input type="text" name="svrTitle"/></td>
+                    </tr>
+                    <tr>
+                        <th>客户</th>
+                        <td><input type="text" name="svrCustName"/></td>
+                        <th>状态</th>
+                        <td><input type="text" name="svrStatus"/></td>
+                    </tr>
+                    <tr>
+                        <th>服务请求</th>
+                        <td colspan="3"><input type="text" name="svrRequest"/><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>创建人</th>
+                        <td><input type="text"  name="svrCreateBy"/></td>
+                        <th>创建时间</th>
+                        <td><input type="text" name="svrCreateDate" aria-readonly="true"/></td>
+
+                    </tr>
+                </table>
+                <br />
+                <table class="query_form_table" id="table3">
+                    <tr>
+                        <th>分配给</th>
+                        <td>
+                            <input type="text" name="svrDueTo"/></td>
+                        <th>分配时间</th>
+                        <td><input type="text" name="svrDueDate" aria-readonly="true"/></td>
+                    </tr>
+                </table>
+                <br />
+                <table class="query_form_table" id="table1">
+                    <tr>
+                        <th>服务处理</th>
+                        <td colspan="3"><input type="text" name="svrDeal"/></td>
+                    </tr>
+                    <tr>
+                        <th>处理人</th>
+                        <td><input type="text" name="svrDealBy" /></td>
+                        <th>处理时间</th>
+                        <td><input type="text" name="svrDealDate" aria-readonly="true"/></td>
+                    </tr>
+                </table>
+                <br />
+                <table class="query_form_table" id="table2">
+                    <tr>
+                        <th>处理结果</th>
+                        <td><input  size="20" name="svrResult"/><span class="red_star">*</span></td>
+                        <th>满意度</th>
+                        <td>
+                            <select name="svrSatisfy">
+                                <option>请选择...</option>
+                                <option value="5">☆☆☆☆☆</option>
+                                <option value="4">☆☆☆☆</option>
+                                <option value="3">☆☆☆</option>
+                                <option value="2">☆☆</option>
+                                <option value="1">☆</option>
+                            </select><span class="red_star">*</span></td>
+                    </tr>
+                </table>
+                <br />
+
+            </form>
+
+        </div>
     </div>
 </div>

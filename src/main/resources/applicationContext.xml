@@ -89,13 +89,4 @@
     <!-- 声明式事务配置结束 -->
 
 
-    <!-- 使用ehcache缓存 -->
-    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-        <property name="configLocation" value="classpath:ehcache.xml"/>
-        <property name="shared" value="true"></property>
-    </bean>
-    <!-- 默认是cacheManager -->
-    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-        <property name="cacheManager" ref="cacheManagerFactory"/>
-    </bean>
 </beans>

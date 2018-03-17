@@ -1,4 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<html>
+<head>
+    <base href="<%=basePath%>">
+    <title>jb-aptech毕业设计项目</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="script/common.js"></script>
+</head>
+<body>
 <div class="easyui-layout" data-options="fit:true">
     <div class="easyui-panel pd5" data-options="fit:true,border:true">
         <div class="page_title">客户信息管理 > 客户信息</div>
@@ -14,9 +27,9 @@
         <table class="query_form_table">
             <tr>
                 <th>客户编号</th>
-                <td>KH071202001</td>
+                <td>${sessionScope.c.custNo}</td>
                 <th>名称</th>
-                <td><input value="北京聪海信息科技有限公司" /><span class="red_star">*</span></td>
+                <td><input value="${sessionScope.c.custName}" /><span class="red_star">*</span></td>
             </tr>
             <tr>
                 <th>地区</th>
@@ -142,3 +155,5 @@
         <p>　</p>
     </div>
 </div>
+</body>
+</html>
